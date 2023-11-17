@@ -4,11 +4,19 @@
     --main-dark1: #132b4e;
     --main-backgrond: #0b1421;
     --chat-backgrond: #121e30;
-    
+    --header-background:#132b4e;
     --font-color: white
 }
 
-*{padding: 0;margin: 0;box-sizing: border-box; font-family: sans-serif;}
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box; 
+    font-family: 'Roboto', sans-serif;
+font-family: 'Roboto Mono', monospace;
+font-family: 'Roboto Slab', serif;
+
+}
 
 .wrapper{
     background-color: var(--main-backgrond);
@@ -25,7 +33,7 @@
 .chatbot-header{
     grid-column: 1/ span 3;
     width: 100%;
-    background-color: #132b4e;
+    background-color: var(--header-background);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -74,6 +82,16 @@
 }
 .drawer:hover{
     background-color: var(--main-hover);
+}
+    
+.drawer-container{
+    width: 100%;
+    display: none;
+    position: absolute;
+    padding-top: 80px;
+    height: 100vh;
+    z-index: 3;
+    background-color: var(--main-backgrond);
 }
 
 .chat-container{
@@ -168,10 +186,41 @@
     bottom: 100px;
     z-index: 1;
 }
-/* === Sections === */
+/* === Section INFO === */
 .chatbot-info-container{
     padding: 20px;
 }
+.chatbot-info-container h2{
+    font-size: 2rem;
+    color: rgb(14, 164, 223);
+}
+.chatbot-info-container h3{
+    font-size: 1.5rem;
+    color: rgb(6, 139, 192);
+}
+.chatbot-info-container h4{
+    font-size: 1.2rem;
+}
+.chatbot-info-container p{
+    font-size: 1.2rem;
+    color: rgb(228, 228, 228);
+}
+/* === Section QUESTIONS === */
+
 .chatbot-questions-container{
     padding: 20px;
+}
+.chatbot-questions-container h2{
+    font-size: 2rem;
+    color: rgb(14, 164, 223);
+}
+.chatbot-questions-container p, li{
+    font-size: 1.2rem;
+    color: rgb(228, 228, 228);
+}
+.chatbot-questions-container ul{
+    list-style: inside;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
 }

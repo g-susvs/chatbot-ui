@@ -5,8 +5,8 @@ import { ChatbotContext } from '../context/ChatbotContext';
 
 export const ChatMessages: FC = () => {
 
-    const { messages } = useContext(ChatbotContext)
-
+    const { chatbotState } = useContext(ChatbotContext)
+    const { messages } = chatbotState
     const $messagesList = useRef<HTMLElement>(null)
 
     useEffect(() => {

@@ -9,7 +9,8 @@ import { ChatbotQuestion } from './components/ChatbotQuestion';
 
 const App: FC = () => {
 
-  const { loadingBotMsg } = useContext(ChatbotContext)
+  const { chatbotState } = useContext(ChatbotContext)
+  const { loadingBotMsg } = chatbotState
 
   return (
     <div className="wrapper">
@@ -23,6 +24,7 @@ const App: FC = () => {
         <InputMessage />
       </main>
       <ChatbotQuestion />
+      {/* <DrawerContainer /> */}
     </div>
   )
 }

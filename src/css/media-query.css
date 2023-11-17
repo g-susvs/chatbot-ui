@@ -1,8 +1,6 @@
 
-
 @media (max-width: 1200px){
 
-    
     .wrapper{
         display: grid;
         grid-template-columns: 1fr ;
@@ -33,18 +31,44 @@
     .chatbot-info-container{
         position: absolute;
         padding-top: 80px;
+        width: 100%;
         height: 100vh;
         z-index: 1;
         background-color: var(--main-backgrond);
         display: none;
     }
     .chatbot-questions-container{
-        /* display: none; */
+        width: 100%;
+        display: none;
         position: absolute;
         padding-top: 80px;
         height: 100vh;
         z-index: 1;
         background-color: var(--main-backgrond);
+    }
+    .section-active{
+        display: block;
+    }
+
+    .drawer-container ul{
+        display: flex;
+        flex-direction: column;
+    }
+    .drawer-container ul li{
+        padding: 18px 0px 30px;
+        font-size: 1.5rem;
+        text-align: center;
+        transition: all 200ms;
+        cursor: pointer;
+    }
+    .drawer-container ul span{
+        padding-bottom: 4px;
+    }
+    .drawer-container ul li:hover{
+        background-color: var(--header-background);
+    }
+    .drawer-container ul li:hover > span{
+        border-bottom: 1px solid white;
     }
 
 }

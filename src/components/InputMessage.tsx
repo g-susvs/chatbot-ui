@@ -7,8 +7,8 @@ export const InputMessage: FC = () => {
 
     const { VITE_SERVER_CHATBOT } = getEnvVariables()
 
-    const { onAddNewMessage, loadingBotMsg, onLoadingBotMsg } = useContext(ChatbotContext)
-
+    const { chatbotState } = useContext(ChatbotContext)
+    const { onAddNewMessage, loadingBotMsg, onLoadingBotMsg } = chatbotState
     const { formState, message, onInputChange, onResetForm } = useForm({
         message: ''
     })
