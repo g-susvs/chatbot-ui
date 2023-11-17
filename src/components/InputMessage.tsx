@@ -35,10 +35,15 @@ export const InputMessage: FC = () => {
                 console.log(data)
                 onAddNewMessage({ message: data.response, from: 'bot' })
                 onLoadingBotMsg(false)
-                onResetForm()
 
             })
-            .catch(err => console.log(err))
+            .catch(err => {
+                console.error(err)
+                onAddNewMessage({ message: 'Oops, parece que hay un problema con el servidor. Intenta nuevamente más tarde. Gracias por tu comprensión.', from: 'bot' })
+                onLoadingBotMsg(false)
+
+            })
+        onResetForm()
 
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [loadingBotMsg])
