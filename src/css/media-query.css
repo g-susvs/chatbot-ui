@@ -1,0 +1,13 @@
+
+
+@media (max-width: 700px) {
+    .chat-container{
+        width: 100%;
+    }
+    
+}
+@media (max-width: 475px) {
+    .chat-container input{
+        width: 60%;
+    }
+}
