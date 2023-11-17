@@ -1,4 +1,4 @@
-import { FC, FormEvent, useContext, useEffect } from "react"
+import { FC, FormEvent, useContext, useEffect, useState } from 'react';
 import { useForm } from "../hooks/useForm"
 import { ChatbotContext } from "../context/ChatbotContext"
 import { getEnvVariables } from "../config"
@@ -6,8 +6,15 @@ import { getEnvVariables } from "../config"
 export const InputMessage: FC = () => {
 
     const { VITE_SERVER_CHATBOT } = getEnvVariables()
-
     const { chatbotState } = useContext(ChatbotContext)
+
+    const [learnValues, setLearnValues] = useState({
+        newQuestion: '',
+        answer: '',
+        learn: false
+    })
+
+
     const { onAddNewMessage, loadingBotMsg, onLoadingBotMsg } = chatbotState
     const { formState, message, onInputChange, onResetForm } = useForm({
         message: ''
@@ -23,16 +30,36 @@ export const InputMessage: FC = () => {
     useEffect(() => {
         if (!loadingBotMsg) return
 
+        const body = { "user_input": formState.message, "old_input": '' }
+        if (learnValues.newQuestion) {
+            body["old_input"] = learnValues.newQuestion
+        }
+
         fetch(VITE_SERVER_CHATBOT, {
             method: 'POST',
             headers: {
                 "content-type": "application/json"
             },
-            body: JSON.stringify({ "user_input": formState.message })
+            body: JSON.stringify(body)
         })
             .then(resp => resp.json())
             .then(data => {
                 console.log(data)
+                if (data.response === '¡Gracias! ¡He aprendido algo nuevo!') {
+                    console.log('Aprendido')
+                    setLearnValues({
+                        ...learnValues,
+                        newQuestion: ''
+                    })
+                }
+
+                if (data.response === 'No sé la respuesta. ¿Puede enseñármela?') {
+                    console.log('Modo aprendizaje')
+                    setLearnValues({
+                        ...learnValues,
+                        newQuestion: formState.message
+                    })
+                }
                 onAddNewMessage({ message: data.response, from: 'bot' })
                 onLoadingBotMsg(false)
 

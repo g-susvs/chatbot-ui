@@ -17,9 +17,17 @@ export interface UiState {
     onActiveGQ: (arg: boolean) => void;
 }
 
+// export interface ChatbotLearnState {
+//     newQuestion: string;
+//     answer: string;
+//     learn: boolean;
+//     setValues: (args) => void
+// }
+
 export interface ChatbotContextProps {
     chatbotState: ChatbotState;
-    uiState: UiState
+    uiState: UiState;
+    // learnMode: ChatbotLearnState;
 }
 
 export const ChatbotContext = createContext<ChatbotContextProps>({} as ChatbotContextProps)
