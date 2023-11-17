@@ -13,22 +13,30 @@ export const InputMessage: FC = () => {
     const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
         event.preventDefault()
         if (message.trim().length < 2) return
-        console.log()
-
         onAddNewMessage({ message: formState.message, from: 'user' })
         onLoadingBotMsg(true)
-        onResetForm()
     }
 
     useEffect(() => {
         if (!loadingBotMsg) return
 
-        console.log('Cargando...')
+        fetch('http://127.0.0.1:5000/chat', {
+            method: 'POST',
+            headers: {
+                "content-type": "application/json"
+            },
+            body: JSON.stringify({ "user_input": formState.message })
+        })
+            .then(resp => resp.json())
+            .then(data => {
+                console.log(data)
+                onAddNewMessage({ message: data.response, from: 'bot' })
+                onLoadingBotMsg(false)
+                onResetForm()
 
-        setTimeout(() => {
-            onAddNewMessage({ message: 'Respuesta del bot', from: 'bot' })
-            onLoadingBotMsg(false)
-        }, 1000);
+            })
+            .catch(err => console.log(err))
+
 
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [loadingBotMsg])
