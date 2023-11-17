@@ -36,6 +36,7 @@
         z-index: 1;
         background-color: var(--main-backgrond);
         display: none;
+        overflow-y: scroll;
     }
     .chatbot-questions-container{
         width: 100%;

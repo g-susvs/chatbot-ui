@@ -6,7 +6,7 @@ interface Props {
     children: JSX.Element
 }
 const msgs: Message[] = [
-    { message: 'Hola, en qué puendo ayudarte?', from: 'bot' },
+    { message: 'Hola ¿En qué puedo ayudarte?', from: 'bot' },
 ]
 
 export const ChatbotProvider: FC<Props> = ({ children }) => {
@@ -35,9 +35,6 @@ export const ChatbotProvider: FC<Props> = ({ children }) => {
         onActiveGU,
         onActiveGQ
     }
-
-
-
 
     return (
         <ChatbotContext.Provider value={{

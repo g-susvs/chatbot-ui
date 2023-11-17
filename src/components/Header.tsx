@@ -46,6 +46,7 @@ export const Header = () => {
                     </li>
                     <li onClick={() => {
                         onActiveGU(true)
+                        onActiveGQ(false)
                         onToggleDrawer()
                     }}>
                         <span>
@@ -54,6 +55,7 @@ export const Header = () => {
 
                     </li>
                     <li onClick={() => {
+                        onActiveGU(false)
                         onActiveGQ(true)
                         onToggleDrawer()
 
