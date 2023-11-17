@@ -1,5 +1,54 @@
 
 
+@media (max-width: 1200px){
+
+    
+    .wrapper{
+        display: grid;
+        grid-template-columns: 1fr ;
+        grid-template-rows: 60px auto;
+    }
+    .chatbot-header{
+        display: block;
+        z-index: 5;
+    }
+    .chatbot-header nav{
+        margin: 5px auto;
+        max-width: 700px;
+        padding: 0px 20px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .chatbot-logo{
+        width: auto;
+    }
+
+    .drawer{
+        display: block;
+    }
+    .chat-container{
+        grid-column: 1;
+    }
+    .chatbot-info-container{
+        position: absolute;
+        padding-top: 80px;
+        height: 100vh;
+        z-index: 1;
+        background-color: var(--main-backgrond);
+        display: none;
+    }
+    .chatbot-questions-container{
+        /* display: none; */
+        position: absolute;
+        padding-top: 80px;
+        height: 100vh;
+        z-index: 1;
+        background-color: var(--main-backgrond);
+    }
+
+}
+
 @media (max-width: 700px) {
     .chat-container{
         width: 100%;

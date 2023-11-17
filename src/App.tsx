@@ -3,6 +3,9 @@ import { ChatMessages } from "./components/ChatMessages"
 import { InputMessage } from "./components/InputMessage";
 import { ChatbotContext } from './context/ChatbotContext';
 import { Loader } from './components/Loader';
+import { Header } from './components/Header';
+import { ChatbotInfo } from './components/ChatbotInfo';
+import { ChatbotQuestion } from './components/ChatbotQuestion';
 
 const App: FC = () => {
 
@@ -10,12 +13,8 @@ const App: FC = () => {
 
   return (
     <div className="wrapper">
-      <header className="chatbot-header">
-        <div className="chatbot-logo">
-          <img src="/logo.png" alt="logo" />
-          <h1>CHAT - BOT</h1>
-        </div>
-      </header>
+      <Header />
+      <ChatbotInfo />
       <main className="chat-container">
         <ChatMessages />
         <div className="loader-container" style={{ display: loadingBotMsg ? 'block' : 'none' }}>
@@ -23,6 +22,7 @@ const App: FC = () => {
         </div>
         <InputMessage />
       </main>
+      <ChatbotQuestion />
     </div>
   )
 }
