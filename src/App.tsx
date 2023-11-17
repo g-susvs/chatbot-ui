@@ -11,7 +11,10 @@ const App: FC = () => {
   return (
     <div className="wrapper">
       <header className="chatbot-header">
-        <h1>CHAT - BOT</h1>
+        <div className="chatbot-logo">
+          <img src="/logo.png" alt="logo" />
+          <h1>CHAT - BOT</h1>
+        </div>
       </header>
       <main className="chat-container">
         <ChatMessages />

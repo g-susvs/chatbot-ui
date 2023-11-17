@@ -8,7 +8,12 @@ interface Props {
 export const Message: FC<Props> = ({ message, from }) => {
     return (
         <div className={`message ${from === 'bot' ? 'bot-message' : 'user-message'}`}>
-            {message}
+            {
+                from === 'bot' && <img src="/logo.png" alt="logo" />
+            }
+            <p>
+                {message}
+            </p>
         </div>
     )
 }

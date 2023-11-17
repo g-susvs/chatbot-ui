@@ -1,8 +1,11 @@
 import { FC, FormEvent, useContext, useEffect } from "react"
 import { useForm } from "../hooks/useForm"
 import { ChatbotContext } from "../context/ChatbotContext"
+import { getEnvVariables } from "../config"
 
 export const InputMessage: FC = () => {
+
+    const { VITE_SERVER_CHATBOT } = getEnvVariables()
 
     const { onAddNewMessage, loadingBotMsg, onLoadingBotMsg } = useContext(ChatbotContext)
 
@@ -20,7 +23,7 @@ export const InputMessage: FC = () => {
     useEffect(() => {
         if (!loadingBotMsg) return
 
-        fetch('http://127.0.0.1:5000/chat', {
+        fetch(VITE_SERVER_CHATBOT, {
             method: 'POST',
             headers: {
                 "content-type": "application/json"
@@ -36,7 +39,6 @@ export const InputMessage: FC = () => {
 
             })
             .catch(err => console.log(err))
-
 
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [loadingBotMsg])
