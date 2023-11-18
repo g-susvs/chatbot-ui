@@ -8,11 +8,7 @@ export const InputMessage: FC = () => {
     const { VITE_SERVER_CHATBOT } = getEnvVariables()
     const { chatbotState } = useContext(ChatbotContext)
 
-    const [learnValues, setLearnValues] = useState({
-        newQuestion: '',
-        answer: '',
-        learn: false
-    })
+    const [newQuestion, setNewQuestion] = useState('')
 
 
     const { onAddNewMessage, loadingBotMsg, onLoadingBotMsg } = chatbotState
@@ -31,8 +27,9 @@ export const InputMessage: FC = () => {
         if (!loadingBotMsg) return
 
         const body = { "user_input": formState.message, "old_input": '' }
-        if (learnValues.newQuestion) {
-            body["old_input"] = learnValues.newQuestion
+
+        if (newQuestion) {
+            body["old_input"] = newQuestion
         }
 
         fetch(VITE_SERVER_CHATBOT, {
@@ -44,21 +41,12 @@ export const InputMessage: FC = () => {
         })
             .then(resp => resp.json())
             .then(data => {
-                console.log(data)
                 if (data.response === '¡Gracias! ¡He aprendido algo nuevo!') {
-                    console.log('Aprendido')
-                    setLearnValues({
-                        ...learnValues,
-                        newQuestion: ''
-                    })
+                    setNewQuestion('')
                 }
 
                 if (data.response === 'No sé la respuesta. ¿Puede enseñármela?') {
-                    console.log('Modo aprendizaje')
-                    setLearnValues({
-                        ...learnValues,
-                        newQuestion: formState.message
-                    })
+                    setNewQuestion(formState.message)
                 }
                 onAddNewMessage({ message: data.response, from: 'bot' })
                 onLoadingBotMsg(false)

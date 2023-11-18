@@ -1,24 +1,17 @@
 import { CiMenuBurger } from "react-icons/ci";
-import { useContext, useEffect } from 'react';
+import { useContext } from 'react';
 import { ChatbotContext } from '../context/ChatbotContext';
 
 export const Header = () => {
 
     const { uiState } = useContext(ChatbotContext)
 
-    const { activeDrawer, onToggleDrawer, activGuideUse, activGuideQuest, onActiveGQ, onActiveGU } = uiState
+    const { activeDrawer, onToggleDrawer, onActiveGQ, onActiveGU } = uiState
 
 
     const handleDisplayDrawer = () => {
         onToggleDrawer()
     }
-
-    useEffect(() => {
-        if (activGuideUse) console.log("activando seccion de indicaciónes")
-        if (activGuideQuest) console.log("activando seccion de Preguntas")
-
-    }, [activGuideUse, activGuideQuest])
-
 
     return (
         <>

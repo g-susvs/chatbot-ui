@@ -36,17 +36,6 @@ export const ChatbotProvider: FC<Props> = ({ children }) => {
         onActiveGQ
     }
 
-    //* LEARN MODE
-
-    // const [learnValues, setLearnValues] = useState({
-    //     newQuestion: '',
-    //     answer: '',
-    //     learn: false
-    // })
-
-    // const setValues = ()
-
-
     return (
         <ChatbotContext.Provider value={{
             chatbotState: { messages, onAddNewMessage, loadingBotMsg, onLoadingBotMsg },
