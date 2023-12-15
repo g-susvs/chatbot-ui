@@ -24,7 +24,6 @@ const App: FC = () => {
         <InputMessage />
       </main>
       <ChatbotQuestion />
-      {/* <DrawerContainer /> */}
     </div>
   )
 }

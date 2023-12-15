@@ -51,24 +51,31 @@
         display: block;
     }
 
-    .drawer-container ul{
+    /* .drawer-container{
+        
+    } */
+    .list-buttons{
         display: flex;
         flex-direction: column;
     }
-    .drawer-container ul li{
+
+    .list-buttons button{
         padding: 18px 0px 30px;
         font-size: 1.5rem;
         text-align: center;
         transition: all 200ms;
+        border: none;
         cursor: pointer;
+        color: var(--font-color);
+        background-color: transparent;
     }
-    .drawer-container ul span{
+    .list-buttons span{
         padding-bottom: 4px;
     }
-    .drawer-container ul li:hover{
+    .list-buttons button:hover{
         background-color: var(--header-background);
     }
-    .drawer-container ul li:hover > span{
+    .list-buttons button:hover > span{
         border-bottom: 1px solid white;
     }
 

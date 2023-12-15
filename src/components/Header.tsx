@@ -27,8 +27,8 @@ export const Header = () => {
                 </nav>
             </header>
             <div className={`drawer-container  ${activeDrawer ? 'section-active' : ''}`}>
-                <ul>
-                    <li onClick={() => {
+                <div className="list-buttons">
+                    <button onClick={() => {
                         onToggleDrawer()
                         onActiveGU(false)
                         onActiveGQ(false)
@@ -36,8 +36,8 @@ export const Header = () => {
                         <span>
                             Volver al chatbot
                         </span>
-                    </li>
-                    <li onClick={() => {
+                    </button>
+                    <button onClick={() => {
                         onActiveGU(true)
                         onActiveGQ(false)
                         onToggleDrawer()
@@ -46,8 +46,8 @@ export const Header = () => {
                             Indicaciones de uso
                         </span>
 
-                    </li>
-                    <li onClick={() => {
+                    </button>
+                    <button onClick={() => {
                         onActiveGU(false)
                         onActiveGQ(true)
                         onToggleDrawer()
@@ -56,8 +56,8 @@ export const Header = () => {
                         <span>
                             Preguntas guía
                         </span>
-                    </li>
-                </ul>
+                    </button>
+                </div>
             </div>
         </>
     )
