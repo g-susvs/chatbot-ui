@@ -70,7 +70,8 @@ export const InputMessage: FC = () => {
                 onChange={onInputChange}
                 name="message"
                 value={message}
-                disabled={loadingBotMsg} />
+                disabled={loadingBotMsg}
+            />
             <button disabled={loadingBotMsg}>Enviar</button>
         </form>
     )

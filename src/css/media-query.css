@@ -1,6 +1,18 @@
 
 @media (max-width: 1200px){
 
+    /*  */
+    .hamburger.is-active .hamburger-inner,
+    .hamburger.is-active .hamburger-inner::before,
+    .hamburger.is-active .hamburger-inner::after {
+        background-color: white; 
+    }
+
+    .hamburger-inner, .hamburger-inner::before, .hamburger-inner::after {
+        background-color: white;
+    }
+    /*  */
+
     .wrapper{
         display: grid;
         grid-template-columns: 1fr ;
@@ -24,6 +36,10 @@
 
     .drawer{
         display: block;
+    }
+    .max-size{
+        max-width: 700px;
+        margin: auto;
     }
     .chat-container{
         grid-column: 1;
@@ -51,9 +67,7 @@
         display: block;
     }
 
-    /* .drawer-container{
-        
-    } */
+
     .list-buttons{
         display: flex;
         flex-direction: column;
@@ -66,7 +80,7 @@
         transition: all 200ms;
         border: none;
         cursor: pointer;
-        color: var(--font-color);
+        color: var(--font1-color);
         background-color: transparent;
     }
     .list-buttons span{

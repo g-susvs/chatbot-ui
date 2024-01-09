@@ -1,4 +1,3 @@
-import { CiMenuBurger } from "react-icons/ci";
 import { useContext } from 'react';
 import { ChatbotContext } from '../context/ChatbotContext';
 
@@ -21,9 +20,18 @@ export const Header = () => {
                         <img src="/logo.png" alt="logo" />
                         <h1>TILINBOT</h1>
                     </div>
-                    <button className="drawer" onClick={handleDisplayDrawer}>
-                        <CiMenuBurger />
+
+                    <button
+                        className={`drawer hamburger hamburger--collapse ${activeDrawer && 'is-active'}`}
+                        type="button"
+                        aria-label="Menu"
+                        onClick={handleDisplayDrawer}
+                    >
+                        <span className="hamburger-box">
+                            <span className="hamburger-inner"></span>
+                        </span>
                     </button>
+
                 </nav>
             </header>
             <div className={`drawer-container  ${activeDrawer ? 'section-active' : ''}`}>

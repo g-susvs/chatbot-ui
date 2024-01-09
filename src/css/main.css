@@ -1,13 +1,16 @@
 :root{
-    --main-color: #1d74f5;
-    --main-hover: #1f447c;
+    --main-color: #1c6ee9;
+    --main-hover: hsl(216, 60%, 30%);
     --main-dark1: #132b4e;
+    --main-soft: #61e1f8;
     --main-backgrond: #0b1421;
     --chat-backgrond: #121e30;
     --header-background:#132b4e;
-    --font-color: white;
-    --text-size:1.2rem;
+    --font1-color: #f5f5f5;
+    --font2-color: #dbdbdb;
+    --text-chat-size:1.2rem;
     --subtitle-size: 1.4rem;
+    --text-size:1.2rem;
 }
 
 *{
@@ -15,8 +18,8 @@
     margin: 0;
     box-sizing: border-box; 
     font-family: 'Roboto', sans-serif;
-font-family: 'Roboto Mono', monospace;
-font-family: 'Roboto Slab', serif;
+    font-family: 'Roboto Mono', monospace;
+    font-family: 'Roboto Slab', serif;
 }
 
 .wrapper{
@@ -52,39 +55,14 @@ font-family: 'Roboto Slab', serif;
     height: 50px;
 }
 
-
-/* .chatbot-header nav{
-    max-width: 1200px;
-    margin: auto;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-} */
 .chatbot-header h1{
-    color: var(--font-color);
+    color: var(--font1-color);
     text-align: center;
 }
+
 .drawer{
-    border: none;
-    background-color: inherit;
-    color: white;
-    width: 45px;
-    height: 45px;
-    border-radius: 50%;
-    cursor: pointer;
     display: none;
 }
-.drawer svg{
-    font-size: 1.5rem;
-    color: white;
-}
-.drawer:hover{
-    background-color: var(--main-hover);
-}
-    
 .drawer-container{
     width: 100%;
     display: none;
@@ -122,7 +100,7 @@ font-family: 'Roboto Slab', serif;
     padding: 10px 16px;
     font-size: 1.4rem;
     background: var(--main-color);
-    color: var(--font-color);
+    color: var(--font1-color);
     border: 0;
     margin: 4px;
     border-radius: 4px;
@@ -149,7 +127,6 @@ font-family: 'Roboto Slab', serif;
 
 .messages-container::-webkit-scrollbar-track{
     background-color: var(--chat-backgrond);
-    border-radius: 10px;
     height: 30px;
 }
 .messages-container::-webkit-scrollbar-thumb{
@@ -158,9 +135,9 @@ font-family: 'Roboto Slab', serif;
 
 .message{
     padding: 15px;
-    font-size: var(--text-size);
+    font-size: var(--text-chat-size);
     background-color: grey;
-    color: var(--font-color);
+    color: var(--font1-color);
 }
 .user-message{
     background-color: var(--main-color);
@@ -187,33 +164,52 @@ font-family: 'Roboto Slab', serif;
     bottom: 100px;
     z-index: 1;
 }
+
+.scroll-custom::-webkit-scrollbar{
+    width: 10px;
+}
+.scroll-custom::-webkit-scrollbar-track{
+    background-color: var(--main-backgrond);
+    border-radius: 10px;
+    height: 30px;
+}
+.scroll-custom::-webkit-scrollbar-thumb{
+    background-color: var(--main-hover);
+}
+
+
 /* === Section INFO === */
 .chatbot-info-container{
     padding: 20px;
+    overflow-y: scroll;
 }
+
+
 .chatbot-info-container h2{
     font-size: var(--subtitle-size);
-    color: rgb(14, 164, 223);
+    color: var(--main-soft);
 }
 .chatbot-info-container h3{
     font-size: var(--text-size);
-    color: rgb(6, 139, 192);
+    color: var(--font1-color);
+    margin-bottom: 8px;
 }
 .chatbot-info-container h4{
-    font-size: var(--text-size);
+    font-size: var(--text-chat-size);
 }
 .chatbot-info-container p{
     font-size: var(--text-size);
-    color: rgb(228, 228, 228);
+    color: var(--font2-color)
 }
 /* === Section QUESTIONS === */
 
 .chatbot-questions-container{
     padding: 20px;
+    overflow-y: scroll;
 }
 .chatbot-questions-container h2{
     font-size: var(--subtitle-size);
-    color: rgb(14, 164, 223);
+    color: var(--main-soft);
 }
 .chatbot-questions-container p, li{
     font-size: var(--text-size);
